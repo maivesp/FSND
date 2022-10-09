@@ -1,0 +1,5 @@
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,11
+[InternetShortcut]
+IDList=
+URL=https://dev-qiwwdzlk.us.auth0.com/authorize?audience=capstone&response_type=token&client_id=6UX6RSaAp1YPfYAfsnhf9IivlfDb3RoC&redirect_uri=http://localhost:5000/
