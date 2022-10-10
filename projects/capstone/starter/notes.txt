@@ -17,3 +17,26 @@ lenovo@DESKTOP-BFDBC8N MINGW64 /e/Udacity/FSND/projects/capstone/starter (master
 
 
 https://{{YOUR_DOMAIN}}/authorize?audience={{API_IDENTIFIER}}&response_type=token&client_id={{YOUR_CLIENT_ID}}&redirect_uri={{YOUR_CALLBACK_URI}}
+
+
+SELECT PG_GET_SERIAL_SEQUENCE('"actor"','id');
+ pg_get_serial_sequence
+------------------------
+ public.actor_id_seq
+(1 row)
+
+
+SELECT nextval('actor_id_seq');
+ nextval
+---------
+       4
+(1 row)
+
+
+SELECT setval('actor_id_seq', (SELECT MAX(id) FROM actor));
+
+
+
+
+
+http://localhost:5000/#access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTY5OTQwNzAzMTE2NDc5MDgwMzMiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NTQxMTM3NiwiZXhwIjoxNjY1NDE4NTc2LCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZGVsZXRlOm1vdmllIiwiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwicGF0Y2g6YWN0b3IiLCJwYXRjaDptb3ZpZSIsInB1dDphY3RvciIsInB1dDptb3ZpZSJdfQ.drv6frA3cJzyPc1jkdLi4UB3c3H7-x7AaHqh0MXgXytM3XurMRF5wxJJ9fMoxjeM_x4ho7O6S9xKvponCqQVNJrNHTTuyaXyxj-l_ybPKpraTxzeUJ4j3pdEqJ3E_hjQnYADvULL4QRLMqv99BGiJYi5V3nz0g9hgpAwkZT1v0jyNjkAgMjWnzgfT6V8Zr1B6AdaW6d1NKUDSg63k9L4cPdvTaKtOzbWmSwVk9HHSlMTKqZiskB2TmEo0p36YP05z5MCswW75Q9VHdnGTR8utF3bmsk9pxoowe2hnf5a19pc6P0ZVk1o2ZvGJTPI1pULFfz0CrTE341KzW58-4txrQ&expires_in=7200&token_type=Bearer

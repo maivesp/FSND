@@ -6,16 +6,16 @@ from flask_migrate import Migrate
 
 db= SQLAlchemy()
 # Test db setup
-database_filename = "database.db"
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
+#database_filename = "database.db"
+#project_dir = os.path.dirname(os.path.abspath(__file__))
+#database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
 # End of test db setup
 
 def setup_db(app):
 
-  #app.config.from_object('config')
-  app.config["SQLALCHEMY_DATABASE_URI"] = database_path
-  app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+  app.config.from_object('config')
+  #app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+  #app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
   db.app=app
   db.init_app(app) 
 
@@ -43,8 +43,8 @@ class Movie(db.Model):
     def __repr__(self):
         return f'''<Movie { self.id} { self.title} { self.release_date} >'''
 
-    def __init__(self, tile, release_date):
-        self.title = tile
+    def __init__(self, title, release_date):
+        self.title = title
         self.release_date = release_date
  
 
@@ -62,7 +62,9 @@ class Movie(db.Model):
     def format(self):
         return {
             'id': self.id,
-            'title': self.title
+            'title': self.title,
+            'release_date': self.release_date   
+ 
             }
 
 
