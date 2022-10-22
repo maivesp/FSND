@@ -35,7 +35,7 @@ SELECT nextval('actor_id_seq');
 
 SELECT setval('actor_id_seq', (SELECT MAX(id) FROM actor));
 
-
+SELECT setval('movie_id_seq', (SELECT MAX(id) FROM movie));
 
 
 
