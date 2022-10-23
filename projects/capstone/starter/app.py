@@ -223,12 +223,11 @@ def create_app(test_config=None):
                 filter(Movie_cast.movie_id == id).\
                 with_entities(Actor.id, Actor.name,Actor.age).\
                 all()
-            print(casts)
         except Exception as error:
             print('Excepton : ' +str(error))
             abort(404)
 
-        if casts is None:
+        if len(casts) == 0:
             abort(404)
 
         try:
@@ -249,6 +248,25 @@ def create_app(test_config=None):
                         "casts": formatted_casts
             })
     
+    @app.route('/moviecast',methods=['POST'])
+    @requires_auth(permission='put:moviecast')
+    def create_moviecast(payload):
+        body=request.get_json()
+
+        new_movie_id=body.get("movie_id")
+        new_actor_id=body.get("actor_id")
+        moviecast=Movie_cast(movie_id=new_movie_id,actor_id=new_actor_id)
+    
+        try:
+            moviecast.insert()
+        except Exception as error:
+            print(str(error.orig) + " for parameters" + str(error.params))
+            abort(422)
+    
+        return jsonify({
+            "success": True
+        })
+
 
     @app.errorhandler(422)
     def unprocessable(error):
