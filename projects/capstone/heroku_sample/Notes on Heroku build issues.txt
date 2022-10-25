@@ -1,0 +1,426 @@
+python 3.10.8
+--------------
+
+(myvenv) E:\Udacity\FSND\projects\capstone\heroku_sample\myvenv\Scripts>git push heroku master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 318 bytes | 106.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-22 stack
+remote: -----> Using buildpack: heroku/python
+remote: -----> Python app detected
+remote: -----> Using Python version specified in runtime.txt
+remote: -----> Python version has changed from python-3.10.7 to python-3.10.8, clearing cache
+remote: -----> No change in requirements detected, installing from cache
+remote: -----> Installing python-3.10.8
+remote: -----> Installing pip 22.2.2, setuptools 63.4.3 and wheel 0.37.1
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote:        Collecting alembic==1.8.1
+remote:          Downloading alembic-1.8.1-py3-none-any.whl (209 kB)
+remote:        Collecting aniso8601==9.0.1
+remote:          Downloading aniso8601-9.0.1-py2.py3-none-any.whl (52 kB)
+remote:        Collecting argon2-cffi==21.3.0
+remote:          Downloading argon2_cffi-21.3.0-py3-none-any.whl (14 kB)
+remote:        Collecting argon2-cffi-bindings==21.2.0
+remote:          Downloading argon2_cffi_bindings-21.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (86 kB)
+remote:        Collecting astroid==2.2.5
+remote:          Downloading astroid-2.2.5-py3-none-any.whl (193 kB)
+remote:        Collecting atomicwrites==1.4.1
+remote:          Downloading atomicwrites-1.4.1.tar.gz (14 kB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting attrs==22.1.0
+remote:          Downloading attrs-22.1.0-py2.py3-none-any.whl (58 kB)
+remote:        Collecting Babel==2.10.3
+remote:          Downloading Babel-2.10.3-py3-none-any.whl (9.5 MB)
+remote:        Collecting backcall==0.2.0
+remote:          Downloading backcall-0.2.0-py2.py3-none-any.whl (11 kB)
+remote:        Collecting beautifulsoup4==4.11.1
+remote:          Downloading beautifulsoup4-4.11.1-py3-none-any.whl (128 kB)
+remote:        Collecting bleach==5.0.1
+remote:          Downloading bleach-5.0.1-py3-none-any.whl (160 kB)
+remote:        Collecting cffi==1.15.1
+remote:          Downloading cffi-1.15.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (441 kB)
+remote:        Collecting Click==7.0
+remote:          Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
+remote:        Collecting colorama==0.4.5
+remote:          Downloading colorama-0.4.5-py2.py3-none-any.whl (16 kB)
+remote:        Collecting cryptography==38.0.1
+remote:          Downloading cryptography-38.0.1-cp36-abi3-manylinux_2_28_x86_64.whl (4.2 MB)
+remote:        Collecting dateutils==0.6.12
+remote:          Downloading dateutils-0.6.12-py2.py3-none-any.whl (5.7 kB)
+remote:        Collecting debugpy==1.6.3
+remote:          Downloading debugpy-1.6.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.8 MB)
+remote:        Collecting decorator==5.1.1
+remote:          Downloading decorator-5.1.1-py3-none-any.whl (9.1 kB)
+remote:        Collecting defusedxml==0.7.1
+remote:          Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+remote:        Collecting distlib==0.3.6
+remote:          Downloading distlib-0.3.6-py2.py3-none-any.whl (468 kB)
+remote:        Collecting ecdsa==0.13.2
+remote:          Downloading ecdsa-0.13.2-py2.py3-none-any.whl (59 kB)
+remote:        Collecting entrypoints==0.4
+remote:          Downloading entrypoints-0.4-py3-none-any.whl (5.3 kB)
+remote:        Collecting fastjsonschema==2.16.1
+remote:          Downloading fastjsonschema-2.16.1-py3-none-any.whl (22 kB)
+remote:        Collecting filelock==3.8.0
+remote:          Downloading filelock-3.8.0-py3-none-any.whl (10 kB)
+remote:        Collecting Flask==1.0.2
+remote:          Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
+remote:        Collecting Flask-Cors==3.0.8
+remote:          Downloading Flask_Cors-3.0.8-py2.py3-none-any.whl (14 kB)
+remote:        Collecting Flask-Migrate==3.1.0
+remote:          Downloading Flask_Migrate-3.1.0-py3-none-any.whl (20 kB)
+remote:        Collecting Flask-Moment==1.0.4
+remote:          Downloading Flask_Moment-1.0.4-py3-none-any.whl (6.1 kB)
+remote:        Collecting Flask-RESTful==0.3.9
+remote:          Downloading Flask_RESTful-0.3.9-py2.py3-none-any.whl (25 kB)
+remote:        Collecting Flask-SQLAlchemy==2.5.0
+remote:          Downloading Flask_SQLAlchemy-2.5.0-py2.py3-none-any.whl (17 kB)
+remote:        Collecting Flask-WTF==1.0.1
+remote:          Downloading Flask_WTF-1.0.1-py3-none-any.whl (12 kB)
+remote:        Collecting future==0.17.1
+remote:          Downloading future-0.17.1.tar.gz (829 kB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting greenlet==1.1.3
+remote:          Downloading greenlet-1.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (155 kB)
+remote:        Collecting gunicorn==20.0.4
+remote:          Downloading gunicorn-20.0.4-py2.py3-none-any.whl (77 kB)
+remote:        Collecting importlib-metadata==4.12.0
+remote:          Downloading importlib_metadata-4.12.0-py3-none-any.whl (21 kB)
+remote:        Collecting importlib-resources==5.9.0
+remote:          Downloading importlib_resources-5.9.0-py3-none-any.whl (33 kB)
+remote:        Collecting iniconfig==1.1.1
+remote:          Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+remote:        Collecting ipykernel==6.15.3
+remote:          Downloading ipykernel-6.15.3-py3-none-any.whl (138 kB)
+remote:        Collecting ipython==7.34.0
+remote:          Downloading ipython-7.34.0-py3-none-any.whl (793 kB)
+remote:        Collecting ipython-genutils==0.2.0
+remote:          Downloading ipython_genutils-0.2.0-py2.py3-none-any.whl (26 kB)
+remote:        Collecting isort==4.3.18
+remote:          Downloading isort-4.3.18-py2.py3-none-any.whl (42 kB)
+remote:        Collecting itsdangerous==1.1.0
+remote:          Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+remote:        Collecting jedi==0.18.1
+remote:          Downloading jedi-0.18.1-py2.py3-none-any.whl (1.6 MB)
+remote:        Collecting Jinja2==2.10.1
+remote:          Downloading Jinja2-2.10.1-py2.py3-none-any.whl (124 kB)
+remote:        Collecting jose==1.0.0
+remote:          Downloading jose-1.0.0.tar.gz (9.2 kB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting jsonschema==4.16.0
+remote:          Downloading jsonschema-4.16.0-py3-none-any.whl (83 kB)
+remote:        Collecting jupyter-core==4.11.1
+remote:          Downloading jupyter_core-4.11.1-py3-none-any.whl (88 kB)
+remote:        Collecting jupyter_client==7.3.5
+remote:          Downloading jupyter_client-7.3.5-py3-none-any.whl (132 kB)
+remote:        Collecting jupyterlab-pygments==0.2.2
+remote:          Downloading jupyterlab_pygments-0.2.2-py2.py3-none-any.whl (21 kB)
+remote:        Collecting jwt==1.3.1
+remote:          Downloading jwt-1.3.1-py3-none-any.whl (18 kB)
+remote:        Collecting lazy-object-proxy==1.4.0
+remote:          Downloading lazy-object-proxy-1.4.0.tar.gz (33 kB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting lxml==4.9.1
+remote:          Downloading lxml-4.9.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (6.9 MB)
+remote:        Collecting Mako==1.2.2
+remote:          Downloading Mako-1.2.2-py3-none-any.whl (78 kB)
+remote:        Collecting MarkupSafe==1.1.1
+remote:          Downloading MarkupSafe-1.1.1.tar.gz (19 kB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting matplotlib-inline==0.1.6
+remote:          Downloading matplotlib_inline-0.1.6-py3-none-any.whl (9.4 kB)
+remote:        Collecting mccabe==0.6.1
+remote:          Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+remote:        Collecting mistune==2.0.4
+remote:          Downloading mistune-2.0.4-py2.py3-none-any.whl (24 kB)
+remote:        Collecting nbclient==0.6.8
+remote:          Downloading nbclient-0.6.8-py3-none-any.whl (71 kB)
+remote:        Collecting nbformat==5.5.0
+remote:          Downloading nbformat-5.5.0-py3-none-any.whl (75 kB)
+remote:        Collecting nest-asyncio==1.5.5
+remote:          Downloading nest_asyncio-1.5.5-py3-none-any.whl (5.2 kB)
+remote:        Collecting notebook==6.4.12
+remote:          Downloading notebook-6.4.12-py3-none-any.whl (9.9 MB)
+remote:        Collecting packaging==21.3
+remote:          Downloading packaging-21.3-py3-none-any.whl (40 kB)
+remote:        Collecting pandocfilters==1.5.0
+remote:          Downloading pandocfilters-1.5.0-py2.py3-none-any.whl (8.7 kB)
+remote:        Collecting parso==0.8.3
+remote:          Downloading parso-0.8.3-py2.py3-none-any.whl (100 kB)
+remote:        Collecting pickleshare==0.7.5
+remote:          Downloading pickleshare-0.7.5-py2.py3-none-any.whl (6.9 kB)
+remote:        Collecting pkgutil_resolve_name==1.3.10
+remote:          Downloading pkgutil_resolve_name-1.3.10-py3-none-any.whl (4.7 kB)
+remote:        Collecting platformdirs==2.5.2
+remote:          Downloading platformdirs-2.5.2-py3-none-any.whl (14 kB)
+remote:        Collecting pluggy==0.13.1
+remote:          Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+remote:        Collecting prometheus-client==0.14.1
+remote:          Downloading prometheus_client-0.14.1-py3-none-any.whl (59 kB)
+remote:        Collecting prompt-toolkit==3.0.31
+remote:          Downloading prompt_toolkit-3.0.31-py3-none-any.whl (382 kB)
+remote:        Collecting psutil==5.9.2
+remote:          Downloading psutil-5.9.2-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (282 kB)
+remote:        Collecting psycopg2==2.9.3
+remote:          Downloading psycopg2-2.9.3.tar.gz (380 kB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting psycopg2-binary==2.9.3
+remote:          Downloading psycopg2_binary-2.9.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+remote:        Collecting py==1.11.0
+remote:          Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+remote:        Collecting pycparser==2.21
+remote:          Downloading pycparser-2.21-py2.py3-none-any.whl (118 kB)
+remote:        Collecting pycryptodome==3.3.1
+remote:          Downloading pycryptodome-3.3.1.tar.gz (3.1 MB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting Pygments==2.13.0
+remote:          Downloading Pygments-2.13.0-py3-none-any.whl (1.1 MB)
+remote:        Collecting PyJWT==1.7.1
+remote:          Downloading PyJWT-1.7.1-py2.py3-none-any.whl (18 kB)
+remote:        Collecting pylint==2.3.1
+remote:          Downloading pylint-2.3.1-py3-none-any.whl (765 kB)
+remote:        Collecting pyparsing==3.0.9
+remote:          Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+remote:        Collecting pyrsistent==0.18.1
+remote:          Downloading pyrsistent-0.18.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (115 kB)
+remote:        Collecting pytest==6.2.2
+remote:          Downloading pytest-6.2.2-py3-none-any.whl (280 kB)
+remote:        Collecting python-dateutil==2.8.2
+remote:          Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+remote:        Collecting python-jose-cryptodome==1.3.2
+remote:          Downloading python_jose_cryptodome-1.3.2-py2.py3-none-any.whl (19 kB)
+remote:        Collecting pyzmq==24.0.0
+remote:          Downloading pyzmq-24.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+remote:        Collecting ruamel.yaml==0.16.5
+remote:          Downloading ruamel.yaml-0.16.5-py2.py3-none-any.whl (123 kB)
+remote:        Collecting ruamel.yaml.clib==0.2.6
+remote:          Downloading ruamel.yaml.clib-0.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (519 kB)
+remote:        Collecting Send2Trash==1.8.0
+remote:          Downloading Send2Trash-1.8.0-py3-none-any.whl (18 kB)
+remote:        Collecting six==1.12.0
+remote:          Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
+remote:        Collecting soupsieve==2.3.2.post1
+remote:          Downloading soupsieve-2.3.2.post1-py3-none-any.whl (37 kB)
+remote:        Collecting SQLAlchemy==1.4.41
+remote:          Downloading SQLAlchemy-1.4.41-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+remote:        Collecting terminado==0.15.0
+remote:          Downloading terminado-0.15.0-py3-none-any.whl (16 kB)
+remote:        Collecting tinycss2==1.1.1
+remote:          Downloading tinycss2-1.1.1-py3-none-any.whl (21 kB)
+remote:        Collecting toml==0.10.2
+remote:          Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+remote:        Collecting tomli==2.0.1
+remote:          Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+remote:        Collecting tornado==6.2
+remote:          Downloading tornado-6.2-cp37-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (423 kB)
+remote:        Collecting traitlets==5.4.0
+remote:          Downloading traitlets-5.4.0-py3-none-any.whl (107 kB)
+remote:        Collecting typing_extensions==4.3.0
+remote:          Downloading typing_extensions-4.3.0-py3-none-any.whl (25 kB)
+remote:        Collecting urllib3==1.26.12
+remote:          Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+remote:        Collecting virtualenv==20.16.5
+remote:          Downloading virtualenv-20.16.5-py3-none-any.whl (8.8 MB)
+remote:        Collecting wcwidth==0.2.5
+remote:          Downloading wcwidth-0.2.5-py2.py3-none-any.whl (30 kB)
+remote:        Collecting webencodings==0.5.1
+remote:          Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+remote:        Collecting Werkzeug==0.15.6
+remote:          Downloading Werkzeug-0.15.6-py2.py3-none-any.whl (328 kB)
+remote:        Collecting wrapt==1.11.1
+remote:          Downloading wrapt-1.11.1.tar.gz (27 kB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting WTForms==3.0.1
+remote:          Downloading WTForms-3.0.1-py3-none-any.whl (136 kB)
+remote:        Collecting zipp==3.8.1
+remote:          Downloading zipp-3.8.1-py3-none-any.whl (5.6 kB)
+remote:        Collecting flask_script==1.0.0
+remote:          Downloading Flask-Script-1.0.0.tar.gz (40 kB)
+remote:          Preparing metadata (setup.py): started
+remote:          Preparing metadata (setup.py): finished with status 'done'
+remote:        Collecting typed-ast>=1.3.0
+remote:          Downloading typed_ast-1.5.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (877 kB)
+remote:        Collecting pytz>=2015.7
+remote:          Downloading pytz-2022.5-py2.py3-none-any.whl (500 kB)
+remote:        Collecting pexpect>4.3
+remote:          Downloading pexpect-4.8.0-py2.py3-none-any.whl (59 kB)
+remote:        Collecting nbconvert>=5
+remote:          Downloading nbconvert-7.2.2-py3-none-any.whl (271 kB)
+remote:        Collecting ptyprocess
+remote:          Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+remote:        Collecting nbconvert>=5
+remote:          Downloading nbconvert-7.2.1-py3-none-any.whl (271 kB)
+remote:          Downloading nbconvert-7.1.0-py3-none-any.whl (272 kB)
+remote:          Downloading nbconvert-7.0.0-py3-none-any.whl (271 kB)
+remote:          Downloading nbconvert-6.5.4-py3-none-any.whl (563 kB)
+remote:          Downloading nbconvert-6.5.3-py3-none-any.whl (563 kB)
+remote:          Downloading nbconvert-6.5.2-py3-none-any.whl (563 kB)
+remote:          Downloading nbconvert-6.5.1-py3-none-any.whl (563 kB)
+remote:          Downloading nbconvert-6.5.0-py3-none-any.whl (561 kB)
+remote:          Downloading nbconvert-6.4.5-py3-none-any.whl (561 kB)
+remote:          Downloading nbconvert-6.4.4-py3-none-any.whl (561 kB)
+remote:          Downloading nbconvert-6.4.3-py3-none-any.whl (560 kB)
+remote:          Downloading nbconvert-6.4.2-py3-none-any.whl (558 kB)
+remote:          Downloading nbconvert-6.4.1-py3-none-any.whl (557 kB)
+remote:          Downloading nbconvert-6.4.0-py3-none-any.whl (557 kB)
+remote:          Downloading nbconvert-6.3.0-py3-none-any.whl (556 kB)
+remote:          Downloading nbconvert-6.2.0-py3-none-any.whl (553 kB)
+remote:          Downloading nbconvert-6.1.0-py3-none-any.whl (551 kB)
+remote:          Downloading nbconvert-6.0.7-py3-none-any.whl (552 kB)
+remote:          Downloading nbconvert-6.0.6-py3-none-any.whl (551 kB)
+remote:          Downloading nbconvert-6.0.5-py3-none-any.whl (505 kB)
+remote:          Downloading nbconvert-6.0.4-py3-none-any.whl (505 kB)
+remote:          Downloading nbconvert-6.0.3-py3-none-any.whl (505 kB)
+remote:          Downloading nbconvert-6.0.2-py3-none-any.whl (504 kB)
+remote:          Downloading nbconvert-6.0.1-py3-none-any.whl (502 kB)
+remote:          Downloading nbconvert-6.0.0-py3-none-any.whl (502 kB)
+remote:          Downloading nbconvert-5.6.1-py2.py3-none-any.whl (455 kB)
+remote:        Collecting testpath
+remote:          Downloading testpath-0.6.0-py3-none-any.whl (83 kB)
+remote:        Collecting nbconvert>=5
+remote:          Downloading nbconvert-5.6.0-py2.py3-none-any.whl (453 kB)
+remote:          Downloading nbconvert-5.5.0-py2.py3-none-any.whl (447 kB)
+remote:        Building wheels for collected packages: atomicwrites, future, jose, lazy-object-proxy, MarkupSafe, psycopg2, pycryptodome, wrapt, flask_script
+remote:          Building wheel for atomicwrites (setup.py): started
+remote:          Building wheel for atomicwrites (setup.py): finished with status 'done'
+remote:          Created wheel for atomicwrites: filename=atomicwrites-1.4.1-py2.py3-none-any.whl size=6943 sha256=fce34b1be9ce47b80d2aaf11629b7effc43e34cedb2cfd75c4c10a4642048978
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/34/07/0b/33b15f68736109f72ea0bb2499521d87312b932620737447a2
+remote:          Building wheel for future (setup.py): started
+remote:          Building wheel for future (setup.py): finished with status 'done'
+remote:          Created wheel for future: filename=future-0.17.1-py3-none-any.whl size=488726 sha256=7ed5a7eb9157e71d7368a66989a43d266a31d8bfcd716624f2c8bcec93c455ac
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/60/f0/4c/68485b935d8a12f7b49063fe28e7d5c945709b23cf3f7459eb
+remote:          Building wheel for jose (setup.py): started
+remote:          Building wheel for jose (setup.py): finished with status 'done'
+remote:          Created wheel for jose: filename=jose-1.0.0-py3-none-any.whl size=8827 sha256=2e4057364afb9095e29c63f215098fe96ac7abc8eb8983e1fb67504f1e30a498
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/ae/7f/27/6fdc1409ff47dc04c30d20fcc088df116c791368a1ab7a0603
+remote:          Building wheel for lazy-object-proxy (setup.py): started
+remote:          Building wheel for lazy-object-proxy (setup.py): finished with status 'done'
+remote:          Created wheel for lazy-object-proxy: filename=lazy_object_proxy-1.4.0-cp310-cp310-linux_x86_64.whl size=24249 sha256=cd46e5f764641df1a221f3cd6fc587013df2e95a8f5ba252834ece2dd74f6d60
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/b5/7c/3d/cc96d24e981d2ab446af3330d45e7a02520672d28317a3a472
+remote:          Building wheel for MarkupSafe (setup.py): started
+remote:          Building wheel for MarkupSafe (setup.py): finished with status 'done'
+remote:          Created wheel for MarkupSafe: filename=MarkupSafe-1.1.1-cp310-cp310-linux_x86_64.whl size=17161 sha256=d3112a7fe0d1f99f39448221192396adb0c50d53c5399ec20f494b303f9594d6
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/a6/81/81/3fcafa7c24e4b4e25bcf383c792b343e53c38e6196f44bc3e3
+remote:          Building wheel for psycopg2 (setup.py): started
+remote:          Building wheel for psycopg2 (setup.py): finished with status 'done'
+remote:          Created wheel for psycopg2: filename=psycopg2-2.9.3-cp310-cp310-linux_x86_64.whl size=159237 sha256=8905e1d816290386cc28c0d861109b1f44a18f2997d20abae34cf79c2dd48c24
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/81/b6/3d/091aad3e8919ea76c84c2674b02ce3ab52de882e091c39249e
+remote:          Building wheel for pycryptodome (setup.py): started
+remote:          Building wheel for pycryptodome (setup.py): finished with status 'done'
+remote:          Created wheel for pycryptodome: filename=pycryptodome-3.3.1-cp310-cp310-linux_x86_64.whl size=3198002 sha256=6b59aa5673add8378fb51c801584db69fb8678d004debcc044393fc611fe0912
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/94/db/17/951e5bdfbe589b8a50ea60692021bc6e0c6421481adb7370db
+remote:          Building wheel for wrapt (setup.py): started
+remote:          Building wheel for wrapt (setup.py): finished with status 'done'
+remote:          Created wheel for wrapt: filename=wrapt-1.11.1-cp310-cp310-linux_x86_64.whl size=33709 sha256=b4b8a1a0c674dee694adfa731b115995c1124d454648696025f0b8bcfcaafd83
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/85/19/42/69edf7822f9dc97f62b1584a22f342d1474d1bb24fe3cc2bc8
+remote:          Building wheel for flask_script (setup.py): started
+remote:          Building wheel for flask_script (setup.py): finished with status 'done'
+remote:          Created wheel for flask_script: filename=Flask_Script-1.0.0-py3-none-any.whl size=13067 sha256=ae66377fd145390f09156a6af193b66f686db37c63ed0704b7fd8a4ba28c0f2f
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-vz5oblzj/wheels/6b/8f/32/d3b94df6bc1b8518e0d85f62c50bf8a6a7c975b8ed5d03a692
+remote:        Successfully built atomicwrites future jose lazy-object-proxy MarkupSafe psycopg2 pycryptodome wrapt flask_script
+remote:        Installing collected packages: wrapt, webencodings, wcwidth, Send2Trash, ruamel.yaml, pytz, PyJWT, pycryptodome, ptyprocess, pickleshare, mistune, mccabe, jose, ipython-genutils, iniconfig, fastjsonschema, ecdsa, distlib, backcall, aniso8601, zipp, Werkzeug, urllib3, typing_extensions, typed-ast, traitlets, tornado, tomli, toml, tinycss2, testpath, soupsieve, six, ruamel.yaml.clib, pyzmq, pyrsistent, pyparsing, Pygments, pycparser, py, psycopg2-binary, psycopg2, psutil, prompt-toolkit, prometheus-client, pluggy, platformdirs, pkgutil_resolve_name, pexpect, parso, pandocfilters, nest-asyncio, MarkupSafe, lxml, lazy-object-proxy, jupyterlab-pygments, itsdangerous, isort, importlib-resources, gunicorn, greenlet, future, filelock, entrypoints, defusedxml, decorator, debugpy, colorama, Click, Babel, attrs, atomicwrites, WTForms, virtualenv, terminado, SQLAlchemy, python-jose-cryptodome, python-dateutil, packaging, matplotlib-inline, Mako, jupyter-core, jsonschema, Jinja2, jedi, importlib-metadata, cffi, bleach, beautifulsoup4, astroid, pytest, pylint, nbformat, jupyter_client, ipython, Flask, dateutils, cryptography, argon2-cffi-bindings, alembic, nbconvert, nbclient, jwt, ipykernel, Flask-WTF, Flask-SQLAlchemy, flask_script, Flask-RESTful, Flask-Moment, Flask-Cors, argon2-cffi, notebook, Flask-Migrate
+remote:        Successfully installed Babel-2.10.3 Click-7.0 Flask-1.0.2 Flask-Cors-3.0.8 Flask-Migrate-3.1.0 Flask-Moment-1.0.4 Flask-RESTful-0.3.9 Flask-SQLAlchemy-2.5.0 Flask-WTF-1.0.1 Jinja2-2.10.1 Mako-1.2.2 MarkupSafe-1.1.1 PyJWT-1.7.1 Pygments-2.13.0 SQLAlchemy-1.4.41 Send2Trash-1.8.0 WTForms-3.0.1 Werkzeug-0.15.6 alembic-1.8.1 aniso8601-9.0.1 argon2-cffi-21.3.0 argon2-cffi-bindings-21.2.0 astroid-2.2.5 atomicwrites-1.4.1 attrs-22.1.0 backcall-0.2.0 beautifulsoup4-4.11.1 bleach-5.0.1 cffi-1.15.1 colorama-0.4.5 cryptography-38.0.1 dateutils-0.6.12 debugpy-1.6.3 decorator-5.1.1 defusedxml-0.7.1 distlib-0.3.6 ecdsa-0.13.2 entrypoints-0.4 fastjsonschema-2.16.1 filelock-3.8.0 flask_script-1.0.0 future-0.17.1 greenlet-1.1.3 gunicorn-20.0.4 importlib-metadata-4.12.0 importlib-resources-5.9.0 iniconfig-1.1.1 ipykernel-6.15.3 ipython-7.34.0 ipython-genutils-0.2.0 isort-4.3.18 itsdangerous-1.1.0 jedi-0.18.1 jose-1.0.0 jsonschema-4.16.0 jupyter-core-4.11.1 jupyter_client-7.3.5 jupyterlab-pygments-0.2.2 jwt-1.3.1 lazy-object-proxy-1.4.0 lxml-4.9.1 matplotlib-inline-0.1.6 mccabe-0.6.1 mistune-2.0.4 nbclient-0.6.8 nbconvert-5.5.0 nbformat-5.5.0 nest-asyncio-1.5.5 notebook-6.4.12 packaging-21.3 pandocfilters-1.5.0 parso-0.8.3 pexpect-4.8.0 pickleshare-0.7.5 pkgutil_resolve_name-1.3.10 platformdirs-2.5.2 pluggy-0.13.1 prometheus-client-0.14.1 prompt-toolkit-3.0.31 psutil-5.9.2 psycopg2-2.9.3 psycopg2-binary-2.9.3 ptyprocess-0.7.0 py-1.11.0 pycparser-2.21 pycryptodome-3.3.1 pylint-2.3.1 pyparsing-3.0.9 pyrsistent-0.18.1 pytest-6.2.2 python-dateutil-2.8.2 python-jose-cryptodome-1.3.2 pytz-2022.5 pyzmq-24.0.0 ruamel.yaml-0.16.5 ruamel.yaml.clib-0.2.6 six-1.12.0 soupsieve-2.3.2.post1 terminado-0.15.0 testpath-0.6.0 tinycss2-1.1.1 toml-0.10.2 tomli-2.0.1 tornado-6.2 traitlets-5.4.0 typed-ast-1.5.4 typing_extensions-4.3.0 urllib3-1.26.12 virtualenv-20.16.5 wcwidth-0.2.5 webencodings-0.5.1 wrapt-1.11.1 zipp-3.8.1
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 159.2M
+remote: -----> Launching...
+remote:        Released v21
+remote:        https://maivesp.herokuapp.com/ deployed to Heroku
+remote:
+remote: Starting November 28th, 2022, free Heroku Dynos, free Heroku Postgres, and free Heroku Data for Redis® will no longer be available.
+remote:
+remote: If you have apps using any of these resources, you must upgrade to paid plans by this date to ensure your apps continue to run and to retain your data. For students, we will announce a new program by the end of September. Learn more at https://blog.heroku.com/next-chapter
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/maivesp.git
+   c2eab42..e413152  master -> master
+
+(myvenv) E:\Udacity\FSND\projects\capstone\heroku_sample\myvenv\Scripts>heroku run python manage.py db upgrade --app maivesp
+Running python manage.py db upgrade on ⬢ maivesp... up, run.4688 (Free)
+Traceback (most recent call last):
+  File "/app/manage.py", line 1, in <module>
+    from flask_script import Manager
+  File "/app/.heroku/python/lib/python3.10/site-packages/flask_script/__init__.py", line 12, in <module>
+    from flask import Flask
+  File "/app/.heroku/python/lib/python3.10/site-packages/flask/__init__.py", line 19, in <module>
+    from jinja2 import Markup, escape
+  File "/app/.heroku/python/lib/python3.10/site-packages/jinja2/__init__.py", line 33, in <module>
+    from jinja2.environment import Environment, Template
+  File "/app/.heroku/python/lib/python3.10/site-packages/jinja2/environment.py", line 16, in <module>
+    from jinja2.defaults import BLOCK_START_STRING, \
+  File "/app/.heroku/python/lib/python3.10/site-packages/jinja2/defaults.py", line 32, in <module>
+    from jinja2.tests import TESTS as DEFAULT_TESTS
+  File "/app/.heroku/python/lib/python3.10/site-packages/jinja2/tests.py", line 13, in <module>
+    from collections import Mapping
+ImportError: cannot import name 'Mapping' from 'collections' (/app/.heroku/python/lib/python3.10/collections/__init__.py)
+
+
+after fixing "ImportError: cannot import name 'Mapping' from 'collections'" by patching jinja2/tests.py as per
+https://stackoverflow.com/questions/69381312/in-vs-code-importerror-cannot-import-name-mapping-from-collections
+-------------------------------------------------------------------------------------------------------
+
+(venv) E:\Udacity\FSND\projects\capstone\starter>python -m flask run
+Traceback (most recent call last):
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\flask\__main__.py", line 14, in <module>
+    main(as_module=True)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\flask\cli.py", line 906, in main
+    cli.main(args=args, prog_name=name)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\flask\cli.py", line 569, in main
+    return super(FlaskGroup, self).main(*args, **kwargs)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\click\core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\click\core.py", line 1132, in invoke
+    cmd_name, cmd, args = self.resolve_command(ctx, args)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\click\core.py", line 1171, in resolve_command
+    cmd = self.get_command(ctx, cmd_name)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\flask\cli.py", line 511, in get_command
+    self._load_plugin_commands()
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\flask\cli.py", line 507, in _load_plugin_commands
+    self.add_command(ep.load(), ep.name)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\pkg_resources\__init__.py", line 2471, in load
+    return self.resolve()
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\pkg_resources\__init__.py", line 2477, in resolve
+    module = __import__(self.module_name, fromlist=['__name__'], level=0)
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\flask_migrate\__init__.py", line 7, in <module>
+    from alembic import __version__ as __alembic_version__
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\alembic\__init__.py", line 3, in <module>
+    from . import context
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\alembic\context.py", line 1, in <module>
+    from .runtime.environment import EnvironmentContext
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\alembic\runtime\environment.py", line 14, in <module>
+    from .migration import MigrationContext
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\alembic\runtime\migration.py", line 19, in <module>
+    from sqlalchemy import Column
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\sqlalchemy\__init__.py", line 8, in <module>
+    from . import util as _util  # noqa
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\sqlalchemy\util\__init__.py", line 14, in <module>
+    from ._collections import coerce_generator_arg  # noqa
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\sqlalchemy\util\_collections.py", line 16, in <module>
+    from .compat import binary_types
+  File "e:\Udacity\FSND\projects\capstone\starter\venv\lib\site-packages\sqlalchemy\util\compat.py", line 331, in <module>
+    time_func = time.clock
+AttributeError: module 'time' has no attribute 'clock'
+
+
+
