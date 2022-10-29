@@ -213,7 +213,7 @@ def create_app(test_config=None):
             "delete":id
             })
 
-    @app.route("/movies/<int:id>/cast",methods=["GET"])
+    @app.route("/movie/<int:id>/cast",methods=["GET"])
     @requires_auth(permission='get:movie_cast')
     def get_movie_cast(payload,id):
         try:
@@ -244,7 +244,7 @@ def create_app(test_config=None):
                             "Age": cast.age} for cast in casts]
         
         return jsonify({"success": True,
-                        "movie title": movie.title,
+                        "movietitle": movie.title,
                         "casts": formatted_casts
             })
     
@@ -256,7 +256,8 @@ def create_app(test_config=None):
         new_movie_id=body.get("movie_id")
         new_actor_id=body.get("actor_id")
         moviecast=Movie_cast(movie_id=new_movie_id,actor_id=new_actor_id)
-    
+        print(str(new_movie_id))
+        print(str(new_actor_id))
         try:
             moviecast.insert()
         except Exception as error:
