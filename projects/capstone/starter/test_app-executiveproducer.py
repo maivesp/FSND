@@ -31,7 +31,7 @@ class CapstoneTestCase(unittest.TestCase):
             self.db.drop_all()
             self.db.create_all()
 
-        token_executive_producer = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTY5OTQwNzAzMTE2NDc5MDgwMzMiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzA1MzE4MSwiZXhwIjoxNjY3MTM5NTgxLCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZGVsZXRlOm1vdmllIiwiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiLCJwYXRjaDphY3RvciIsInBhdGNoOm1vdmllIiwicHV0OmFjdG9yIiwicHV0Om1vdmllIl19.DAhGYoO-nm3qFeJKdxYQotQztRcBabyFJU7f9PbuW-sLeZWgZILGk1A3x5loETOLsKp_bVryQBMWsGkLE4fm3SZm9j9a9_gtN54BFj9ZNYxf7fqA4Hx8yzRoT_HPVSd9A3o6nf8LmwriuAKkafL8aR6ZPASggwzqg7dNffJX0vNFLktDYxW5XVT9njy65-l9UTiBxga7MLhZtY5dZefSKVVNG1k0TNyiyxefEncNGoBZid31Zn4SG8t88BEgnsWo3pC5UCOEBATkJDfJ0HWN264I4DKoSsxGICF5NKNW8WMOMKBg3Ur5IX_BLSxdBz-md8e5RRwe_IYz5dHRNumVuw"
+        token_executive_producer = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTY5OTQwNzAzMTE2NDc5MDgwMzMiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzIyNzM3NywiZXhwIjoxNjY3MzEzNzc3LCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZGVsZXRlOm1vdmllIiwiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiLCJwYXRjaDphY3RvciIsInBhdGNoOm1vdmllIiwicHV0OmFjdG9yIiwicHV0Om1vdmllIl19.cL7MzZslKH5l1XQNNMBn5I8yu1Xc0yjCJqaP2biT8y6nX4vAc6OJbVYDYKFK1qEpK5zJ4SGOQU5dF53cimtFeO7cVhCo-iqqdINrrs29o5LmH2WsaXBa1wURMfDfIqDuA4wsvNwwkM-ZAEdVkcMeMDHZkaMjRYMm9eVRyJqkZkEai6jaGuJiWd84HRNUAfTtSz9fte2ikv_PXwhaI5-XZa9978ljz030IZxuUt0ZIOWGqfDLC2X2qI2VqeelSJWvqdfXfY9brVx_CFDiCFId7sd8wNGXPdoL1fmymw4pxcypG2rkyTTdCd-2aLcVKsV8O-Aynzadw0hI-w1CePeTTA"
         self.header = { 'Authorization': 'Bearer {}'.format(token_executive_producer)}
 
         self.new_actor = {"age": 46,"gender": "Male","name": "Male Test"}
@@ -124,7 +124,7 @@ class CapstoneTestCase(unittest.TestCase):
             conn.commit()
 
     def tearDown(self):
-        # print(self._testMethodName +" Ended")
+        print(self._testMethodName)
         pass
 
 
@@ -264,21 +264,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['error'],404)
         self.assertEqual(data['message'],"Resource not found")
 
-    def testQ_create_moviecast(self):
-        res=self.client().post('/moviecast',headers=self.header,json=self.new_moviecast)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)
-
-    def testR_create_moviecast_unauthorized(self):
-        res = self.client().post("/moviecast",headers=self.header, json=self.new_moviecast)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-
     def testS_create_moviecast_unauthorized(self):
         res = self.client().post("/moviecast",headers=self.header, json=self.new_moviecast)
         data = json.loads(res.data)
@@ -287,53 +272,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['code'],"unauthorized")
         self.assertEqual(data['description'],"Permission not found")
 
-    def testT_create_movie_unauthorized(self):
-        res = self.client().post("/movie",headers=self.header, json=self.new_movie)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-        
-    def testU_create_actor_unauthorized(self):
-        res = self.client().post("/movie",headers=self.header, json=self.new_actor)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-    
-    def testV_update_movie_unauthorized(self):
-        res = self.client().patch("/movie/{}".format(self.id2),headers=self.header, json=self.update_movie)
-        data = json.loads(res.data)
-        
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-
-    def testW_update_actor_unauthorized(self):
-        res = self.client().patch("/movie/{}".format(self.id1),headers=self.header, json=self.update_movie)
-        data = json.loads(res.data)
-        
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-
-    def testW_delete_movie_unauthorized(self):
-        res=self.client().delete('/movie/1000',headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-
-    def testX_delete_actor_unauthorized(self):
-        res=self.client().delete('/actor/1000',headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
 
 # Make the tests conveniently"currentCategory" executable
 if __name__ == "__main__":

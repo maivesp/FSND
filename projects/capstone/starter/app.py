@@ -256,8 +256,6 @@ def create_app(test_config=None):
         new_movie_id=body.get("movie_id")
         new_actor_id=body.get("actor_id")
         moviecast=Movie_cast(movie_id=new_movie_id,actor_id=new_actor_id)
-        print(str(new_movie_id))
-        print(str(new_actor_id))
         try:
             moviecast.insert()
         except Exception as error:

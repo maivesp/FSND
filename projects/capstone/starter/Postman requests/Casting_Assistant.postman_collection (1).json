@@ -1,0 +1,475 @@
+{
+	"info": {
+		"_postman_id": "c4a8094b-3c68-4b24-8a67-598d9e0dc25f",
+		"name": "Casting_Assistant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23039069"
+	},
+	"item": [
+		{
+			"name": "Actor Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": 46,\r\n    \"gender\": \"Male 2\",\r\n    \"name\": \"Male Actor postman 2\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/actor",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actor Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value contains drinks array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.actors).to.be.an('array')\r",
+							"    pm.expect(jsonData.success).equal(true)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/actor",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actor Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n            \"age\": 42,\r\n            \"gender\": \"Male\",\r\n            \"name\": \"Male Actor 2 - upd\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/actor/3",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actor",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actor Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/actor/4",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actor",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n            \"title\": \"Film 1\",\r\n            \"release_date\": \"2022-10-10\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/movie",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value contains movies array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.movies).to.be.an('array')\r",
+							"    pm.expect(jsonData.success).equal(true)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/movie",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n            \"id\": 2,\r\n            \"release_date\": \"2022-10-09\",\r\n            \"title\": \"Film 2 upd\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/movie/2",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movie",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/movie/2",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movie",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Healh Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Movie Cast",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"movie_id\": 3,\r\n    \"actor_id\": 6\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/moviecast",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"moviecast"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie Cast",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value contains drinks array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.casts).to.be.an('array')\r",
+							"    pm.expect(jsonData.success).equal(true)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://maivesp.herokuapp.com/movie/3/cast",
+					"protocol": "https",
+					"host": [
+						"maivesp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movie",
+						"3",
+						"cast"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTI0MzM1NjkzOTQwMjcwNTIxNDQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzIyNzAxOCwiZXhwIjoxNjY3MzEzNDE4LCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiXX0.SngGX8825Ps40xbyeYGIYr0SwbcmRKnN6lCVrVWlqgheDDjA_-Pq-Ow_pQVVtGOimcZarruCqWHjhRa1OlUoBGC9Y2cRZxfSuh2Y7wVO15smIqVnse_BEtjA4HzR7_gzSO8aCcfERJCB_cPTkwz9ilhRi-oVv4leWufyP0VEcxm7-dABARVAPtyCmGxErxNCU-xkHMzJff1SW_z6TDSveZqILuf_TTWNuKZqGmd3BWy9au1kbCXxklh7435aRZte4eqLfMOfSTe4Nd8C96eQkGWECjJBNbZe23zVaxRszB-aK4SFUwoEH2AgaeEdNXxu7nZHHNzLxKO8giX-E_iShw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

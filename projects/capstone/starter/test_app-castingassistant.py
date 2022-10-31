@@ -31,7 +31,7 @@ class CapstoneTestCase(unittest.TestCase):
             self.db.drop_all()
             self.db.create_all()
 
-        token_casting_assistant = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTI0MzM1NjkzOTQwMjcwNTIxNDQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzA1MzAxMSwiZXhwIjoxNjY3MTM5NDExLCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiXX0.ePL0FZBCU4-xzscamjmQ78WrhIJB1n3u9L6AFOoFX0ZwIx4jaktkz3JSDFHonudJx7eBmuUt1H4DaiTRUC1mKfGyAcbb_u-Xr1h7rF0ihvrPPzcQu1j_zI9zGIM43u_LkB9Hq2Hu-6-J8JHVnObUHY1nZQaXmsKIulMfmZCvgFcavyNP12qp6_Af6Vsg_HX-FpAtEYgrfHU0Y3V5dXXUpk_kMrYwfI-CbwQNSO-TjQuWOUOsEqGflZoR0ln_clRKPlY2dZxnTHnUJZr6YEeKqHTY83RXWuAoZD4LYZ39DolC9On8WR7LDj92Xfio8S-PhMD-JmMIZkq8V6ufVnsJAQ"
+        token_casting_assistant = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTI0MzM1NjkzOTQwMjcwNTIxNDQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzIyNzAxOCwiZXhwIjoxNjY3MzEzNDE4LCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiXX0.SngGX8825Ps40xbyeYGIYr0SwbcmRKnN6lCVrVWlqgheDDjA_-Pq-Ow_pQVVtGOimcZarruCqWHjhRa1OlUoBGC9Y2cRZxfSuh2Y7wVO15smIqVnse_BEtjA4HzR7_gzSO8aCcfERJCB_cPTkwz9ilhRi-oVv4leWufyP0VEcxm7-dABARVAPtyCmGxErxNCU-xkHMzJff1SW_z6TDSveZqILuf_TTWNuKZqGmd3BWy9au1kbCXxklh7435aRZte4eqLfMOfSTe4Nd8C96eQkGWECjJBNbZe23zVaxRszB-aK4SFUwoEH2AgaeEdNXxu7nZHHNzLxKO8giX-E_iShw"
         self.header = { 'Authorization': 'Bearer {}'.format(token_casting_assistant)}
 
         self.new_actor = {"age": 46,"gender": "Male","name": "Male Test"}
@@ -124,7 +124,7 @@ class CapstoneTestCase(unittest.TestCase):
             conn.commit()
 
     def tearDown(self):
-        # print(self._testMethodName +" Ended")
+        print(self._testMethodName)
         pass
 
 
@@ -136,30 +136,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['success'],False)
         self.assertEqual(data['error'],404)
         self.assertEqual(data['message'],"Resource not found")
-     
-    def testB_update_actor_fails(self):
-        res = self.client().patch("/actor/1000",headers=self.header, json=self.update_actor)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,404)
-        self.assertEqual(data['success'],False)
-        self.assertEqual(data['error'],404)
-        self.assertEqual(data['message'],"Resource not found")
-
-    def testC_create_new_actor(self):
-        res = self.client().post("/actor",headers=self.header,json=self.new_actor)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)       
-
-    def testD_update_actor(self):
-        res = self.client().patch('/actor/{}'.format(self.id1),headers=self.header, json=self.update_actor)
-        data = json.loads(res.data)
- 
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)
-        self.assertTrue(data["actor"])
 
 
     def testE_get_actors(self):
@@ -168,24 +144,7 @@ class CapstoneTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'],True)
-        self.assertTrue(data['actors'])
-
-    def testF_delete_actor(self):
-        res=self.client().delete('/actor/{}'.format(self.id1),headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,200)
-        self.assertEqual(data['success'],True)
-        self.assertTrue(data['delete'])
-
-    def testG_delete_actor_notfound(self):
-        res=self.client().delete('/actor/1000',headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,404)
-        self.assertEqual(data['success'],False)
-        self.assertEqual(data['error'],404)
-        self.assertEqual(data['message'],"Resource not found")    
+        self.assertTrue(data['actors']) 
 
     def testH_get_movies_empty(self):
         res=self.client().get("/movie",headers=self.header)
@@ -196,31 +155,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['error'],404)
         self.assertEqual(data['message'],"Resource not found")
 
-    def testI_update_movie_fails(self):
-        res = self.client().patch("/movie/1000",headers=self.header, json=self.update_movie)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,404)
-        self.assertEqual(data['success'],False)
-        self.assertEqual(data['error'],404)
-        self.assertEqual(data['message'],"Resource not found")
-
-    def testJ_create_new_movie(self):
-        res = self.client().post("/movie",headers=self.header, json=self.new_movie)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)
-
-    def testK_update_movie(self):
-        res = self.client().patch("/movie/{}".format(self.id2),headers=self.header, json=self.update_movie)
-        data = json.loads(res.data)
-        
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)
-        self.assertTrue(data["movie"])
-
-
     def testL_get_movies(self):
         res=self.client().get("/movie",headers=self.header)
         data=json.loads(res.data)
@@ -229,22 +163,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['success'],True)
         self.assertTrue(data['movies'])
 
-    def testM_delete_movie(self):
-        res=self.client().delete("/movie/{}".format(self.id2),headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,200)
-        self.assertEqual(data['success'],True)
-        self.assertTrue(data['delete'])
-
-    def testN_delete_movie_notfound(self):
-        res=self.client().delete('/movie/1000',headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,404)
-        self.assertEqual(data['success'],False)
-        self.assertEqual(data['error'],404)
-        self.assertEqual(data['message'],"Resource not found")
     
     def testO_get_moviecast(self):
         res=self.client().get('/movie/1/cast',headers=self.header)
@@ -264,22 +182,7 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['error'],404)
         self.assertEqual(data['message'],"Resource not found")
 
-    def testQ_create_moviecast(self):
-        res=self.client().post('/moviecast',headers=self.header,json=self.new_moviecast)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)
-
     def testR_create_moviecast_unauthorized(self):
-        res = self.client().post("/moviecast",headers=self.header, json=self.new_moviecast)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-
-    def testS_create_moviecast_unauthorized(self):
         res = self.client().post("/moviecast",headers=self.header, json=self.new_moviecast)
         data = json.loads(res.data)
 

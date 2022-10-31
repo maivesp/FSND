@@ -31,7 +31,7 @@ class CapstoneTestCase(unittest.TestCase):
             self.db.drop_all()
             self.db.create_all()
 
-        token_casting_director = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDA4MTgwMDcxNjI3NjgzNDY5NTQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzA1MzI2MSwiZXhwIjoxNjY3MTM5NjYxLCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiLCJwYXRjaDphY3RvciIsInBhdGNoOm1vdmllIiwicHV0OmFjdG9yIiwicHV0Om1vdmllY2FzdCJdfQ.cMWr6pi3Gk4BeHkBmXJ_8S1_Me76m7bJYGwt37DLm0ENKOCeoSoasHf_0QKTB8Eh14tyPbUkNqMxZ3BkEGJuxn8hOaSdTLkxYSPob3ovg-jQ5s-sKP83LG4OWGINKlQNiEskfVFkr6Av2Xoh6pqgsHByx7GGtPfKo6046CwM1RzU7vDr8RTrs3NOy1jKgtzp2AjVYw2U-qJUF3tcpsTRVpRrbAJWZwYONAOIHGZ4-YvqAI45IfuhNvE3_gNFqrMKO8KQOTY-vI85nM-ywepZrD7gc6cGKfbBAyIegdZvJLHM1sAUpRuOb5maYqcaOJ3ycAbHCR-iHusswpvRuWv09g"
+        token_casting_director = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDA4MTgwMDcxNjI3NjgzNDY5NTQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzIyNzY1NCwiZXhwIjoxNjY3MzE0MDU0LCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiLCJwYXRjaDphY3RvciIsInBhdGNoOm1vdmllIiwicHV0OmFjdG9yIiwicHV0Om1vdmllY2FzdCJdfQ.hpR8JNW0pBi7v9EE_JaY9T7BA7lNcxUNW5bZ11GjX8LeblnLABkaZETMGRLLYqyhcs_BSZOomINPlxP6MckqtVehyGXzCcaW0y7Md9pK1K-_smGvshia13jLgonf11MsWgG-55OvX2_krOb5gZgJBTjjhGzkNaaC-dIA3tOM1fzARMLyIZ_95UzmrxO_li4qjZTa1xILPvfCoYy00gUBt2uxw8K_cdzuF9NR6CpLZ4BHGj2pg3AEXNLHGg21QDg0YZNHY-nd8OrcCLSTWpKN4DiDu3w8PIjXMizaus-WSplQ6JOW8cX6Xkhmf3Ce1Dk35CeMcsgY4DvC8_d4eQTt3g"
         self.header = { 'Authorization': 'Bearer {}'.format(token_casting_director)}
 
         self.new_actor = {"age": 46,"gender": "Male","name": "Male Test"}
@@ -124,7 +124,7 @@ class CapstoneTestCase(unittest.TestCase):
             conn.commit()
 
     def tearDown(self):
-        # print(self._testMethodName +" Ended")
+        print(self._testMethodName)
         pass
 
 
@@ -205,12 +205,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['error'],404)
         self.assertEqual(data['message'],"Resource not found")
 
-    def testJ_create_new_movie(self):
-        res = self.client().post("/movie",headers=self.header, json=self.new_movie)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)
 
     def testK_update_movie(self):
         res = self.client().patch("/movie/{}".format(self.id2),headers=self.header, json=self.update_movie)
@@ -228,23 +222,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'],True)
         self.assertTrue(data['movies'])
-
-    def testM_delete_movie(self):
-        res=self.client().delete("/movie/{}".format(self.id2),headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,200)
-        self.assertEqual(data['success'],True)
-        self.assertTrue(data['delete'])
-
-    def testN_delete_movie_notfound(self):
-        res=self.client().delete('/movie/1000',headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,404)
-        self.assertEqual(data['success'],False)
-        self.assertEqual(data['error'],404)
-        self.assertEqual(data['message'],"Resource not found")
     
     def testO_get_moviecast(self):
         res=self.client().get('/movie/1/cast',headers=self.header)
@@ -271,50 +248,10 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
 
-    def testR_create_moviecast_unauthorized(self):
-        res = self.client().post("/moviecast",headers=self.header, json=self.new_moviecast)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-
-    def testS_create_moviecast_unauthorized(self):
-        res = self.client().post("/moviecast",headers=self.header, json=self.new_moviecast)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-
     def testT_create_movie_unauthorized(self):
         res = self.client().post("/movie",headers=self.header, json=self.new_movie)
         data = json.loads(res.data)
 
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-        
-    def testU_create_actor_unauthorized(self):
-        res = self.client().post("/movie",headers=self.header, json=self.new_actor)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-    
-    def testV_update_movie_unauthorized(self):
-        res = self.client().patch("/movie/{}".format(self.id2),headers=self.header, json=self.update_movie)
-        data = json.loads(res.data)
-        
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
-
-    def testW_update_actor_unauthorized(self):
-        res = self.client().patch("/movie/{}".format(self.id1),headers=self.header, json=self.update_movie)
-        data = json.loads(res.data)
-        
         self.assertEqual(res.status_code,403)
         self.assertEqual(data['code'],"unauthorized")
         self.assertEqual(data['description'],"Permission not found")
@@ -327,13 +264,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['code'],"unauthorized")
         self.assertEqual(data['description'],"Permission not found")
 
-    def testX_delete_actor_unauthorized(self):
-        res=self.client().delete('/actor/1000',headers=self.header)
-        data=json.loads(res.data)
-
-        self.assertEqual(res.status_code,403)
-        self.assertEqual(data['code'],"unauthorized")
-        self.assertEqual(data['description'],"Permission not found")
 
 # Make the tests conveniently"currentCategory" executable
 if __name__ == "__main__":
