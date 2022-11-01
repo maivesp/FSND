@@ -15,6 +15,7 @@ def create_app(test_config=None):
     app = Flask(__name__)
     CORS(app)
     db=setup_db(app)
+    # db_drop_and_create_all()
 
     @app.after_request
     def after_request(response):
@@ -24,7 +25,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def hello_world():
-        return 'Hello World'
+        return 'Application is up'
 
     @app.route('/actor',methods=['GET'])
     @requires_auth(permission='get:actor')
@@ -34,14 +35,14 @@ def create_app(test_config=None):
         except Exception as error:
             print('Excepton : ' +str(error))
             abort(422)
-        
         if len(actors) == 0:
             abort(404)
         else:
             formatted_actors = [actor.format() for actor in actors]
             return jsonify({
                 "success" : True,
-                "actors" : formatted_actors
+                "actors" : formatted_actors,
+                "count" : len(actors)
                 })
 
     @app.route('/movie',methods=['GET'])
@@ -58,7 +59,8 @@ def create_app(test_config=None):
             formatted_movies = [movie.format() for movie in movies]
             return jsonify({
                 "success" : True,
-                "movies" : formatted_movies
+                "movies" : formatted_movies,
+                "count" : len(movies)
                 })
 
 
@@ -79,7 +81,8 @@ def create_app(test_config=None):
             abort(422)
     
         return jsonify({
-            "success": True
+            "success": True,
+            "actor":actor.format()
         })
 
     @app.route('/movie',methods=['POST'])
@@ -100,7 +103,8 @@ def create_app(test_config=None):
             abort(422)
     
         return jsonify({
-            "success": True
+            "success": True,
+            "movie": movie.format()
         })
 
     @app.route('/actor/<int:id>',methods=['PATCH'])
@@ -186,7 +190,7 @@ def create_app(test_config=None):
 
         return jsonify({
             "success":True,
-            "delete":id
+            "deleted_actor":actor.name
             })
 
     @app.route('/movie/<int:id>',methods=['DELETE'])
@@ -210,7 +214,7 @@ def create_app(test_config=None):
 
         return jsonify({
             "success":True,
-            "delete":id
+            "deleted_movie": movie.title
             })
 
     @app.route("/movie/<int:id>/cast",methods=["GET"])
@@ -256,14 +260,35 @@ def create_app(test_config=None):
         new_movie_id=body.get("movie_id")
         new_actor_id=body.get("actor_id")
         moviecast=Movie_cast(movie_id=new_movie_id,actor_id=new_actor_id)
+
         try:
             moviecast.insert()
         except Exception as error:
             print(str(error.orig) + " for parameters" + str(error.params))
             abort(422)
     
+        try:
+            movie=db.session.query(Movie).\
+            filter(Movie.id == new_movie_id).\
+            with_entities(Movie.title).\
+            one_or_none()
+        except Exception as error:
+            print('Excepton : ' +str(error))
+            abort(404)
+
+        try:
+            actor=db.session.query(Actor).\
+            filter(Actor.id == new_actor_id).\
+            with_entities(Actor.name).\
+            one_or_none()
+        except Exception as error:
+            print('Excepton : ' +str(error))
+            abort(404)
+
         return jsonify({
-            "success": True
+            "success": True,
+            "actor":actor.name,
+            "movie": movie.title
         })
 
 

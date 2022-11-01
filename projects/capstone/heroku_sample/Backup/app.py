@@ -15,7 +15,6 @@ def create_app(test_config=None):
     app = Flask(__name__)
     CORS(app)
     db=setup_db(app)
-    # db_drop_and_create_all()
 
     @app.after_request
     def after_request(response):
@@ -25,7 +24,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def hello_world():
-        return 'Application is up'
+        return 'Hello World'
 
     @app.route('/actor',methods=['GET'])
     @requires_auth(permission='get:actor')
@@ -35,14 +34,14 @@ def create_app(test_config=None):
         except Exception as error:
             print('Excepton : ' +str(error))
             abort(422)
+        
         if len(actors) == 0:
             abort(404)
         else:
             formatted_actors = [actor.format() for actor in actors]
             return jsonify({
                 "success" : True,
-                "actors" : formatted_actors,
-                "count" : len(actors)
+                "actors" : formatted_actors
                 })
 
     @app.route('/movie',methods=['GET'])
@@ -59,8 +58,7 @@ def create_app(test_config=None):
             formatted_movies = [movie.format() for movie in movies]
             return jsonify({
                 "success" : True,
-                "movies" : formatted_movies,
-                "count" : len(movies)
+                "movies" : formatted_movies
                 })
 
 
@@ -81,8 +79,7 @@ def create_app(test_config=None):
             abort(422)
     
         return jsonify({
-            "success": True,
-            "actor":actor.format()
+            "success": True
         })
 
     @app.route('/movie',methods=['POST'])
@@ -103,8 +100,7 @@ def create_app(test_config=None):
             abort(422)
     
         return jsonify({
-            "success": True,
-            "movie": movie.format()
+            "success": True
         })
 
     @app.route('/actor/<int:id>',methods=['PATCH'])
@@ -190,7 +186,7 @@ def create_app(test_config=None):
 
         return jsonify({
             "success":True,
-            "deleted_actor":actor.name
+            "delete":id
             })
 
     @app.route('/movie/<int:id>',methods=['DELETE'])
@@ -214,10 +210,10 @@ def create_app(test_config=None):
 
         return jsonify({
             "success":True,
-            "deleted_movie": movie.title
+            "delete":id
             })
 
-    @app.route("/movie/<int:id>/cast",methods=["GET"])
+    @app.route("/movies/<int:id>/cast",methods=["GET"])
     @requires_auth(permission='get:movie_cast')
     def get_movie_cast(payload,id):
         try:
@@ -248,7 +244,7 @@ def create_app(test_config=None):
                             "Age": cast.age} for cast in casts]
         
         return jsonify({"success": True,
-                        "movietitle": movie.title,
+                        "movie title": movie.title,
                         "casts": formatted_casts
             })
     
@@ -260,35 +256,15 @@ def create_app(test_config=None):
         new_movie_id=body.get("movie_id")
         new_actor_id=body.get("actor_id")
         moviecast=Movie_cast(movie_id=new_movie_id,actor_id=new_actor_id)
-
+    
         try:
             moviecast.insert()
         except Exception as error:
             print(str(error.orig) + " for parameters" + str(error.params))
             abort(422)
     
-        try:
-            movie=db.session.query(Movie).\
-            filter(Movie.id == new_movie_id).\
-            with_entities(Movie.title).\
-            one_or_none()
-        except Exception as error:
-            print('Excepton : ' +str(error))
-            abort(404)
-
-        try:
-            actor=db.session.query(Actor).\
-            filter(Actor.id == new_actor_id).\
-            with_entities(Actor.name).\
-            one_or_none()
-        except Exception as error:
-            print('Excepton : ' +str(error))
-            abort(404)
-
         return jsonify({
-            "success": True,
-            "actor":actor.name,
-            "movie": movie.title
+            "success": True
         })
 
 
@@ -326,10 +302,8 @@ def create_app(test_config=None):
         return response
     
     return app
-
+    
 app=create_app()
-# without the call to create_app(), gunicorn cannot load the app.
-#   gunicorn.errors.HaltServer: <HaltServer 'App failed to load.' 4>
 
 #if __name__ == '__main__':
 #    app.run(host='0.0.0.0', port=8080, debug=True)

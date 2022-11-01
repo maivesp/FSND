@@ -124,7 +124,7 @@ class CapstoneTestCase(unittest.TestCase):
             conn.commit()
 
     def tearDown(self):
-        print(self._testMethodName)
+        # print(self._testMethodName)
         pass
 
 
@@ -151,7 +151,8 @@ class CapstoneTestCase(unittest.TestCase):
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)       
+        self.assertEqual(data["success"], True)      
+        self.assertTrue(data["actor"]) 
 
     def testD_update_actor(self):
         res = self.client().patch('/actor/{}'.format(self.id1),headers=self.header, json=self.update_actor)
@@ -160,7 +161,6 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
         self.assertTrue(data["actor"])
-
 
     def testE_get_actors(self):
         res=self.client().get("/actor",headers=self.header)
@@ -176,7 +176,7 @@ class CapstoneTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'],True)
-        self.assertTrue(data['delete'])
+        self.assertTrue(data['deleted_actor'])
 
     def testG_delete_actor_notfound(self):
         res=self.client().delete('/actor/1000',headers=self.header)
@@ -211,6 +211,7 @@ class CapstoneTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
+        self.assertTrue(data["movie"])
 
     def testK_update_movie(self):
         res = self.client().patch("/movie/{}".format(self.id2),headers=self.header, json=self.update_movie)
@@ -235,7 +236,7 @@ class CapstoneTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'],True)
-        self.assertTrue(data['delete'])
+        self.assertTrue(data['deleted_movie'])
 
     def testN_delete_movie_notfound(self):
         res=self.client().delete('/movie/1000',headers=self.header)

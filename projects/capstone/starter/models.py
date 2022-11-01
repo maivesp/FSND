@@ -2,6 +2,7 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import UniqueConstraint
 from flask_migrate import Migrate
 
 #database_name = 'moviedb'
@@ -108,6 +109,7 @@ class Movie_cast(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     movie_id = db.Column(db.Integer,db.ForeignKey('movie.id'))
     actor_id = db.Column(db.Integer,db.ForeignKey('actor.id'))
+    UniqueConstraint(movie_id,actor_id)
 
     def __repr__(self):
         return f'''<Actor { self.id } { self.movie_id } { self.actor_id } >'''

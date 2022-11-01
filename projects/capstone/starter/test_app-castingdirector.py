@@ -124,7 +124,7 @@ class CapstoneTestCase(unittest.TestCase):
             conn.commit()
 
     def tearDown(self):
-        print(self._testMethodName)
+        # print(self._testMethodName)
         pass
 
 
@@ -151,7 +151,8 @@ class CapstoneTestCase(unittest.TestCase):
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
-        self.assertEqual(data["success"], True)       
+        self.assertEqual(data["success"], True)     
+        self.assertTrue(data["actor"])
 
     def testD_update_actor(self):
         res = self.client().patch('/actor/{}'.format(self.id1),headers=self.header, json=self.update_actor)
@@ -176,7 +177,7 @@ class CapstoneTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'],True)
-        self.assertTrue(data['delete'])
+        self.assertTrue(data['deleted_actor'])
 
     def testG_delete_actor_notfound(self):
         res=self.client().delete('/actor/1000',headers=self.header)
@@ -247,6 +248,8 @@ class CapstoneTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
+        self.assertTrue(data["actor"])
+        self.assertTrue(data["movie"])
 
     def testT_create_movie_unauthorized(self):
         res = self.client().post("/movie",headers=self.header, json=self.new_movie)

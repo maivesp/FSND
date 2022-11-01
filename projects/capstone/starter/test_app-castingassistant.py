@@ -124,7 +124,7 @@ class CapstoneTestCase(unittest.TestCase):
             conn.commit()
 
     def tearDown(self):
-        print(self._testMethodName)
+        # print(self._testMethodName)
         pass
 
 

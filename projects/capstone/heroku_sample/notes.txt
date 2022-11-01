@@ -1,0 +1,10 @@
+ Can't locate revision identified by '..'
+
+$ flask db revision --rev-id faf3ebfbe667
+$ flask db migrate
+$ flask db upgrade
+
+
+heroku run bash
+
+heroku logs
