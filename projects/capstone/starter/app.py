@@ -65,7 +65,7 @@ def create_app(test_config=None):
 
 
     @app.route('/actor',methods=['POST'])
-    @requires_auth(permission='put:actor')
+    @requires_auth(permission='post:actor')
     def create_actor(payload):
         body=request.get_json()
 
@@ -86,7 +86,7 @@ def create_app(test_config=None):
         })
 
     @app.route('/movie',methods=['POST'])
-    @requires_auth(permission='put:movie')
+    @requires_auth(permission='post:movie')
 
     def create_movie(payload):
         body=request.get_json()
@@ -253,7 +253,7 @@ def create_app(test_config=None):
             })
     
     @app.route('/moviecast',methods=['POST'])
-    @requires_auth(permission='put:moviecast')
+    @requires_auth(permission='post:moviecast')
     def create_moviecast(payload):
         body=request.get_json()
 

@@ -4,8 +4,26 @@ Base URL:
 	This app and its backend postgres database are hosted in heroku cloud hosting service. The backend app is hosted at the default, https://maivesp.herokuapp.com
 Authentication: This application endpoints are secured using JWT usage using auth0 integration. 
 
+URL where the application is hosted:
+------------------------------------
+	https://maivesp.herokuapp.com	
+
+Instructions to set up authentication:
+---------------------------------------
+	One Postman script file has been included for each of the 3 roles. Bearer JWT has been copied in the authorization tab of the parent postman and individual test "has been set to inherit auth from parent postman"
+	01_Executive Producer.postman_collection.json
+	Casting_Assistant.postman_collection (1).json
+	Casting_director.postman_collection.json
+
+For the unittests. one separate python file has been created for each role and the WT has been hardcoded in the python file itself.
+
+	test_app-castingassistant.py
+	test_app-castingdirector.py
+	test_app-executiveproducer.py
+	
 
 Error Handling
+--------------
 Errors are returned as JSON objects in the following format:
 
 {

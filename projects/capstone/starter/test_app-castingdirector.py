@@ -31,7 +31,7 @@ class CapstoneTestCase(unittest.TestCase):
             self.db.drop_all()
             self.db.create_all()
 
-        token_casting_director = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDA4MTgwMDcxNjI3NjgzNDY5NTQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzIyNzY1NCwiZXhwIjoxNjY3MzE0MDU0LCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiLCJwYXRjaDphY3RvciIsInBhdGNoOm1vdmllIiwicHV0OmFjdG9yIiwicHV0Om1vdmllY2FzdCJdfQ.hpR8JNW0pBi7v9EE_JaY9T7BA7lNcxUNW5bZ11GjX8LeblnLABkaZETMGRLLYqyhcs_BSZOomINPlxP6MckqtVehyGXzCcaW0y7Md9pK1K-_smGvshia13jLgonf11MsWgG-55OvX2_krOb5gZgJBTjjhGzkNaaC-dIA3tOM1fzARMLyIZ_95UzmrxO_li4qjZTa1xILPvfCoYy00gUBt2uxw8K_cdzuF9NR6CpLZ4BHGj2pg3AEXNLHGg21QDg0YZNHY-nd8OrcCLSTWpKN4DiDu3w8PIjXMizaus-WSplQ6JOW8cX6Xkhmf3Ce1Dk35CeMcsgY4DvC8_d4eQTt3g"
+        token_casting_director = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImxVQVNnbGZ1dUVyQW1iQm4zc1VxciJ9.eyJpc3MiOiJodHRwczovL2Rldi1xaXd3ZHpsay51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDA4MTgwMDcxNjI3NjgzNDY5NTQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTY2NzM2Mjc4NiwiZXhwIjoxNjY3NDQ5MTg2LCJhenAiOiI2VVg2UlNhQXAxWVBmWUFmc25oZjlJaXZsZkRiM1JvQyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9yIiwiZ2V0OmFjdG9yIiwiZ2V0Om1vdmllIiwiZ2V0Om1vdmllX2Nhc3QiLCJwYXRjaDphY3RvciIsInBhdGNoOm1vdmllIiwicG9zdDphY3RvciIsInBvc3Q6bW92aWVjYXN0Il19.eBQ_hJK3utr2GtQC-0mRrdAl9gK7xOeU41GaTbBMWbqwGj-7RbHWIVg90HdEkOr1IKQrgqbkIb9FYG0XXrzMBj3oYXvRJ5MJnRxDDes2692PvV5AdgQEfFhSLVPFKFaaeT8x13iUWCSz8IB88yeDETkW-eUTtIwcKiD-xrruihclAlP5tzH9_40cb_XNKmtjTWuoBXkj5nvQ34kHZTnbCqoQI4w1S_ZwuZ7Z8Rpi8BIYD2pNrgTsR7HybbLdH9zVpBOiXEcDyOcSY1zqINqXXAxys-rwXcQz33_tH1-AcB_-Q2LCc4lKw2_xsoIoL_a9MgT0u4dcu2k1evp92Bljnw"
         self.header = { 'Authorization': 'Bearer {}'.format(token_casting_director)}
 
         self.new_actor = {"age": 46,"gender": "Male","name": "Male Test"}
@@ -137,7 +137,7 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['error'],404)
         self.assertEqual(data['message'],"Resource not found")
      
-    def testB_update_actor_fails(self):
+    def testB_update_actor_notfound(self):
         res = self.client().patch("/actor/1000",headers=self.header, json=self.update_actor)
         data = json.loads(res.data)
 
@@ -197,7 +197,7 @@ class CapstoneTestCase(unittest.TestCase):
         self.assertEqual(data['error'],404)
         self.assertEqual(data['message'],"Resource not found")
 
-    def testI_update_movie_fails(self):
+    def testI_update_movie_notfound(self):
         res = self.client().patch("/movie/1000",headers=self.header, json=self.update_movie)
         data = json.loads(res.data)
 
