@@ -15,12 +15,100 @@ Instructions to set up authentication:
 	Casting_Assistant.postman_collection (1).json
 	Casting_director.postman_collection.json
 
-For the unittests. one separate python file has been created for each role and the WT has been hardcoded in the python file itself.
+For the unittests. one separate python file has been created for each role and the JWT has been hardcoded in the python file itself.
 
 	test_app-castingassistant.py
 	test_app-castingdirector.py
 	test_app-executiveproducer.py
 	
+Unittest scripts has been created as per the permission allowed for each role. Following are the permissions allowed for each role and corresponding the unittest created.
+
+casting assistant:	
+------------------
+
+"permissions": [
+    "get:actor",
+    "get:movie",
+    "get:movie_cast"
+  ]
+
+testE_get_actors
+testH_get_movies_empty
+testL_get_movies
+testO_get_moviecast
+testP_get_moviecast_empty
+testR_create_moviecast_unauthorized
+testT_create_movie_unauthorized
+testU_create_actor_unauthorized
+testV_update_movie_unauthorized
+testW_delete_movie_unauthorized
+testW_update_actor_unauthorized
+testX_delete_actor_unauthorized
+
+casting_director:
+-----------------
+
+  "permissions": [
+    "delete:actor",
+    "get:actor",
+    "get:movie",
+    "get:movie_cast",
+    "patch:actor",
+    "patch:movie",
+    "put:actor",
+    "put:moviecast"
+  ]
+
+testA_get_actors_empty
+testB_update_actor_notfound
+testC_create_new_actor
+testD_update_actor
+testE_get_actors
+testF_delete_actor
+testG_delete_actor_notfound
+testH_get_movies_empty
+testI_update_movie_notfound
+testK_update_movie
+testL_get_movies
+testO_get_moviecast
+testP_get_moviecast_empty
+testQ_create_moviecast
+testT_create_movie_unauthorized
+testW_delete_movie_unauthorized
+
+executive_PRODUCER:
+-------------------
+
+  "permissions": [
+    "delete:actor",
+    "delete:movie",
+    "get:actor",
+    "get:movie",
+    "get:movie_cast",
+    "patch:actor",
+    "patch:movie",
+    "put:actor",
+    "put:movie"
+  ]
+
+testA_get_actors_empty
+testB_update_actor_notfound
+testC_create_new_actor
+testD_update_actor
+testE_get_actors
+testF_delete_actor
+testG_delete_actor_notfound
+testH_get_movies_empty
+testI_update_movie_h
+testJ_create_new_movie
+testK_update_movie
+testL_get_movies
+testM_delete_movie
+testN_delete_movie_notfound
+testO_get_moviecast
+testP_get_moviecast_empty
+testS_create_moviecast_unauthorized
+
 
 Error Handling
 --------------
